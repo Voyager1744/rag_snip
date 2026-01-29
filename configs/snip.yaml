@@ -1,0 +1,23 @@
+project:
+  name: snip_rag
+  persist_dir: chroma_store
+
+embeddings:
+  provider: huggingface
+  model: BAAI/bge-m3
+
+vectorstore:
+  type: chroma
+  collection_name: snip
+
+retriever:
+  search_type: mmr
+  k: 6
+
+llm:
+  provider: ollama
+  model: qwen2.5:7b
+  temperature: 0
+
+prompt:
+  template: snip_qa
